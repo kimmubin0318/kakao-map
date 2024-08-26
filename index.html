@@ -40,6 +40,7 @@
         <button id="satellite-toggle">위성지도</button>
         <!-- 카카오 지도를 표시할 요소 -->
         <div id="map"></div>
+        <!-- 카카오 지도 API를 로드하는 스크립트 -->
         <script
             type="text/javascript"
             src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=0e8f5e0d17b2b2db13d6d4832e631119&autoload=false"
@@ -48,7 +49,6 @@
             // 지도 초기화 및 설정
             var map;
             var ps; // 장소 검색 객체
-            var mapTypeControl; // 지도 타입 컨트롤 객체
             var isSatellite = false; // 위성 모드 상태
 
             // 카카오 맵 API 로드 후 지도 초기화
@@ -65,7 +65,7 @@
                 ps = new kakao.maps.services.Places();
 
                 // 지도 타입 컨트롤 생성 및 지도에 추가
-                mapTypeControl = new kakao.maps.MapTypeControl();
+                var mapTypeControl = new kakao.maps.MapTypeControl();
                 map.addControl(
                     mapTypeControl,
                     kakao.maps.ControlPosition.TOPRIGHT
